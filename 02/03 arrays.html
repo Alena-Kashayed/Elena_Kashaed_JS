@@ -1,0 +1,62 @@
+﻿<script>
+	document.write("<h3>Task 1</h3>");
+	var arr_numbers = [];
+	var k = 0;
+	var odd = [];
+	for (var i = 0; i < 15; i++) {
+		arr_numbers[i] = Math.floor(Math.random()*100)-50;
+	}
+	var max = arr_numbers[0];
+	var min = max;
+	for (var i = 0; i < arr_numbers.length; i++) {
+		if (arr_numbers[i] > max) {   //selects the max values
+			max = arr_numbers[i];
+		} else if (arr_numbers[i] < min) {   //selects the min values
+			min = arr_numbers[i];
+		} 
+		if (arr_numbers[i]%2 != 0) {   //selects the odd values
+			odd[k] = arr_numbers[i];
+			k++;
+		} 
+	}
+	var sum = 0;
+	for (var i = 0; i < arr_numbers.length; i++) {
+		sum += arr_numbers[i]; 
+	}
+	var mean = sum/arr_numbers.length;
+	document.write("Наибольшее значение массива равно ", max, ".<br>");
+	document.write("Наименьшее значение массива равно ", min, ".<br>");	
+	document.write("Общая сумма элементов равна ", sum, ".<br>");
+	document.write("Среднее арифметическое всех элементов равно ", mean, ".<br>");
+	document.write("Все нечетные значения: ", odd, ".<br>");
+	document.write("<h3>Task 2</h3>");
+	var arr = new Array();
+	
+	var cols_rows = 5;
+  	for(var i=0; i<cols_rows; i++){
+    	arr[i] = new Array();
+	    for(var j=0; j<cols_rows; j++){
+	    	arr[i][j] = Math.floor(Math.random()*100)-50; //fills the two-dimensional array
+	    }
+  	}
+  	for (var i = 0; i < arr.length; i++) {
+		for (var j = 0; j < arr[i].length; j++) {
+			document.write(arr[i][j]+'&nbsp');
+		}
+		document.write("<br/>");
+	}
+  	for (var i = 0; i < arr.length; i++) {
+  		if (arr[i][i] < 0) {
+  			arr[i][i] = 0;
+  		} else if (arr[i][i] > 0) {
+  			arr[i][i] = 1;
+  		}
+	}
+	document.write("<p>По главной диагонали все числа со знаком (-) заменили на 0, а числа со знаком (+) на число 1.</p>");
+	for (var i = 0; i < arr.length; i++) {
+		for (var j = 0; j < arr[i].length; j++) {
+			document.write(arr[i][j]+'&nbsp');
+		}
+		document.write("<br/>");
+	}
+</script>

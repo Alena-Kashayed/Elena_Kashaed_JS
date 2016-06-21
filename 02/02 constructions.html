@@ -1,0 +1,82 @@
+﻿<script>
+	document.write("<h3>Task 1</h3>");
+	var a = 15;
+	var b = 25;
+	var sum = 0;
+	var k = 0;
+	var odd = [];
+	for (var i = a; i <= b; i++) {
+		sum += i;
+		if (i%2 != 0) {
+			odd[k] = i;
+			k++;
+		} 
+	}
+	document.write("Все нечетные значения, расположенные в числовом промежутке от А = ", a," до В = ", b,", это ", odd,".<br>");
+	document.write("Сумма всех чисел, расположенных в числовом промежутке от А = ", a," до B = ", b,", равна ", sum,".<br>");
+	document.write("<h3>Task 2</h3>");
+	var clients = 3;
+	if(clients >= 0) { 
+		var variants = 1;
+		do {
+			variants *= clients;
+			clients --;
+		}	while (clients > 1)
+		document.write("Количество возможных вариантов доставки товара: ", variants,".<br>");
+	} else {
+		document.write("Количество клиентов должно быть положительным числом.<br>");
+	}
+	document.write("<h3>Task 3</h3><p>Прямоугольник<p>");
+	for (var i = 0; i <= 10; i++) {
+		for (var j = 0; j <= 40; j++) {
+			document.write("*");
+		}
+		document.write("<br>");
+	}
+	document.write("<p>Прямоугольный треугольник</p>");
+	var space = 39;
+	var asterisk = 1;
+	for (var i = 0; i <= 10; i++) { //prints lines
+		for (var k = space; k >= 0; k--) { //prints spaces
+			document.write("&nbsp");
+		}
+		for (var j = 1; j <= asterisk; j++) { //prints asterisks
+			document.write("*");
+		}
+		document.write("<br>");
+		space-=4;
+		asterisk+=2;
+	}
+	document.write("<p>Равносторонний треугольник</p><div style ='line-height: 14px;'>");
+	space = 23;
+	asterisk = 1;
+	for (var i = 0; i <= 10; i++) {
+		for (var k = space; k >= 0; k--) {
+			document.write("&nbsp");
+		}
+		for (var j = 1; j <= asterisk; j++) {
+			document.write("*");
+		}
+		document.write("<br>");
+		space-=2;
+		asterisk+=2;
+	}
+	document.write("</div><p>Ромб</p>");
+	space = 19;
+	asterisk = 1;
+	for (var i = 0; i <= 8; i++) {
+		for (var k = space; k >= 0; k--) {
+			document.write("&nbsp");
+		}
+		for (var j = 1; j <= asterisk; j++) {
+			document.write("*");
+		}
+		document.write("<br>");
+		space-=4;
+		asterisk+=4;
+		if (i >= 3) {
+			space+=8;
+			asterisk-=8;
+		} 
+	}
+</script>
