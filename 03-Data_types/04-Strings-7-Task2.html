@@ -1,0 +1,26 @@
+<script>
+	console.log('Task 2');
+    function checkBrackets(expression) {
+        var counter = 0,
+            i, result;
+        for (i = 0; i < expression.length; i++) {
+            if (counter >= 0) {
+                if (expression.charAt(i) === '(') counter++;
+                if (expression.charAt(i) === ')') counter--; 
+            } 
+            else {
+                result = 'Closing bracket comes before opening one.';
+                return result;
+            }
+        }
+        if (counter == 0) {
+            result = 'The brackets are placed correctly.';
+        }
+        else {
+            result = 'There are unclosed brackets.' 
+        }   
+        return result;
+    }
+    console.log(checkBrackets('((a+b)/5-d)'));
+    console.log(checkBrackets(')(a+b))'));
+</script>
