@@ -1,0 +1,49 @@
+﻿<script type="text/javascript">
+    console.log('Task 1');
+    (function() {
+        var distance;
+        function P(x, y) {
+            if (!(this instanceof P)) {
+                return new P(x, y)
+            }
+            this.x = x
+            this.y = y
+        }
+        P.calculateDistance = function(a, b) {
+            return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2))
+        }
+        function L(start, end) {
+            if (!(this instanceof L)) {
+                return new L(start, end)
+            }
+            this.start = start
+            this.end = end
+        }
+        distance = P.calculateDistance(P(0, 0), P(2, 2));
+        console.log('The distance between two points is ',distance);
+        L.prototype.getLength = function() {
+            return P.calculateDistance(this.start, this.end)
+        }
+        function Triangle(a, b, c) {
+            if (!(this instanceof Triangle)) {
+                return new Triangle(a, b, c)
+            }
+            if ((a.getLength() < b.getLength() + c.getLength() &&
+                  b.getLength() < c.getLength() + a.getLength() &&
+                  c.getLength() < a.getLength() + b.getLength())
+            ) {
+                console.log('These lines form a triangle!');
+            } else {
+                console.log('These lines don\'t form a triangle!');
+            }
+            this.a = a
+            this.b = b
+            this.c = c
+        }
+        Triangle
+          ( L(P(0, 0), P(4, 0))
+          , L(P(0, 0), P(2, 2))
+          , L(P(2, 2), P(4, 0))
+        );
+    }());
+</script>
