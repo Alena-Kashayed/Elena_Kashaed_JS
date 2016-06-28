@@ -1,0 +1,31 @@
+<script>
+console.log('Task 3');
+(function() {
+    var obj = { 
+        x: 1,
+        obj: { 
+            x: 1,
+            f: function(x) {
+                return x * x;
+            }
+        }
+    }
+    function deepCopy(obj) {
+        if (typeof obj !== 'object') {
+            return obj;
+        }
+        var result = {};
+        var prop;
+        for (prop in obj) {
+            result[prop] = deepCopy(obj[prop]);
+        }
+        return result;
+    }
+    var copy = deepCopy(obj);
+    obj.obj.f = function(x) {
+        return x * x * x;
+    }
+    console.log(obj.obj.f(2))
+    console.log(copy.obj.f(2))
+}());
+</script>

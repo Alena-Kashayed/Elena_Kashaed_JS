@@ -1,0 +1,12 @@
+<script>
+	console.log('Task 2');
+	var givenNumber = 256;
+	DigitsReverse(givenNumber);
+	function DigitsReverse(num){
+		var str = num.toString();
+		var arr = str.split('');
+		var result = arr.reverse().join('');
+		result = parseInt(result);
+		console.log ('The reversed digits of the given decimal number = ', num,' are', result,'.');
+	}
+</script>

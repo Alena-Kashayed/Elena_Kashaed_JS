@@ -1,0 +1,30 @@
+<script>
+	console.log('Task 3');
+	var text = 'JavaScript Tutorial JavaScript is the programming language of HTML and the Web. Programming makes computers do what you want them to do.\nJavaScript is easy to learn.\nThis tutorial will teach you JavaScript from basic to advanced.\nExamples in Each Chapter\nWith our "Try it Yourself" editor, you can change all examples and view the results.\nNote We recommend reading this tutorial, in the sequence listed in the left menu.\nLearn by Examples\nExamples are better than 1000 words. Examples are often easier to understand than text explanations.\nThis tutorial supplements all explanations with clarifying "Try it Yourself" examples.\nNote If you try all the examples, you will learn a lot about JavaScript, in a very short time!\nWhy Study JavaScript?\nJavaScript is one of the 3 languages all web developers must learn:\n1. HTML to define the content of web pages\n2. CSS to specify the layout of web pages\n3. JavaScript to program the behavior of web pages\nThis tutorial is about JavaScript, and how JavaScript works with HTML and CSS.\nLearning Speed.';
+	console.log(text);
+	function searchingOccurrences(givenText, word, caseInsensitive){
+		var wordPosition;
+		var result;
+		var givenWord = word;
+		var counter = 1;
+		if (caseInsensitive == true) {
+			givenText = givenText.toLowerCase();
+			word = word.toLowerCase();
+		}
+		wordPosition = givenText.indexOf(word);
+		if (wordPosition >= 0) {
+			result = 'The occurrences of the word "'+givenWord+'" in the text are in the following positions: '
+			while (wordPosition >= 0) {
+				result = result + ' ' + wordPosition;
+				wordPosition = givenText.indexOf(word, ++wordPosition);
+				counter++;
+			} 
+			result = result + '. The number of occurrences of the word "'+givenWord+'" in the text is ' + counter + '.';
+		} else {
+			result = 'The word is not found in the text';
+		}
+		console.log(result);
+	}
+	searchingOccurrences(text, 'JavaScript');
+	searchingOccurrences(text, 'javascript', true);
+</script>

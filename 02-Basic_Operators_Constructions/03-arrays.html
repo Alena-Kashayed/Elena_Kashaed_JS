@@ -30,13 +30,12 @@
 	document.write("Среднее арифметическое всех элементов равно ", mean, ".<br>");
 	document.write("Все нечетные значения: ", odd, ".<br>");
 	document.write("<h3>Task 2</h3>");
-	var arr = new Array();
-	
+	var arr = new Array(); 
 	var cols_rows = 5;
   	for(var i=0; i<cols_rows; i++){
-    	arr[i] = new Array();
+    	arr[i] = new Array();  
 	    for(var j=0; j<cols_rows; j++){
-	    	arr[i][j] = Math.floor(Math.random()*100)-50; //fills the two-dimensional array
+	    	arr[i][j] = Math.floor(Math.random()*100)-50; //fills the two-dimensional array 
 	    }
   	}
   	for (var i = 0; i < arr.length; i++) {

@@ -1,0 +1,75 @@
+<script type='text/javascript'>
+	console.log('Task 4');
+	var text = 'We are <mixcase>living</mixcase> in a <upcase>yellow submarine</upcase>. We <mixcase>don\'t</mixcase> have <lowcase>anything</lowcase> else.';
+	function changeText(text) {
+		var upCaseStart;
+		var upCaseEnd;
+		var upCaseText;
+		var textBegin;
+		var textEnd;
+		upCaseStart = text.indexOf('<upcase>');
+		upCaseEnd = text.indexOf('</upcase>');
+		upCaseText = text.substring(upCaseStart+8, upCaseEnd);
+		text = text.replace(/<upcase>(.*?)<\/upcase>/,'<upcase>'+upCaseText.toUpperCase()+'</upcase>');
+		while (true) {
+			upCaseStart = text.indexOf('<upcase>', upCaseStart + 1);
+			upCaseEnd = text.indexOf('</upcase>', upCaseEnd + 1);
+			if (upCaseStart == -1 || upCaseEnd == -1) {
+				break;
+			}
+			textBegin = text.substring(0, upCaseStart);
+			textEnd = text.substring(upCaseStart, text.length);
+			upCaseText = text.substring(upCaseStart+8, upCaseEnd);
+			text = textBegin + textEnd.replace(/<upcase>(.*?)<\/upcase>/,'<upcase>'+upCaseText.toUpperCase()+'</upcase>');
+		}
+
+		var lowCaseStart;
+		var lowCaseEnd;
+		var lowCaseText
+		var lowCaseText;
+		lowCaseStart = text.indexOf('<lowcase>');
+		lowCaseEnd = text.indexOf('</lowcase>');
+		lowCaseText = text.substring(lowCaseStart+9, lowCaseEnd);
+		text = text.replace(/<lowcase>(.*?)<\/lowcase>/,'<lowcase>'+lowCaseText.toLowerCase()+'</lowcase>');
+		while (true) {
+			lowCaseStart = text.indexOf('<lowcase>', lowCaseStart + 1);
+			lowCaseEnd = text.indexOf('</lowcase>', lowCaseEnd + 1);
+			if (lowCaseStart == -1 || lowCaseEnd == -1) {
+				break;
+			}
+			textBegin = text.substring(0, lowCaseStart);
+			textEnd = text.substring(lowCaseStart, text.length);
+			lowCaseText = text.substring(lowCaseStart+9, lowCaseEnd);
+			text = textBegin + textEnd.replace(/<lowcase>(.*?)<\/lowcase>/,'<lowcase>'+lowCaseText.toLowerCase()+'</lowcase>');
+		}
+
+		var mixCaseStart;
+		var mixCaseEnd;
+		var mixCaseText;
+		var mixCaseText;
+		mixCaseStart = text.indexOf('<mixcase>');
+		mixCaseEnd = text.indexOf('</mixcase>');
+		mixCaseText = text.substring(mixCaseStart+9, mixCaseEnd);
+		text = text.replace(/<mixcase>(.*?)<\/mixcase>/,'<mixcase>'+toMixCase(mixCaseText)+'</mixcase>');
+		while (true) {
+			mixCaseStart = text.indexOf('<mixcase>', mixCaseStart + 1);
+			mixCaseEnd = text.indexOf('</mixcase>', mixCaseEnd + 1);
+			if (mixCaseStart == -1 || mixCaseEnd == -1) {
+				break;
+			}
+			textBegin = text.substring(0, mixCaseStart);
+			textEnd = text.substring(mixCaseStart, text.length);
+			mixCaseText = text.substring(mixCaseStart+9, mixCaseEnd);
+			text = textBegin + textEnd.replace(/<mixcase>(.*?)<\/mixcase>/,'<mixcase>'+toMixCase(mixCaseText)+'</mixcase>');
+		}
+        return text;
+    }
+	function toMixCase(str) {
+        var replaced = '', i;
+        for (i = 0; i < str.length; i++) {
+            replaced += str.charAt(i)[Math.round(Math.random()) ? 'toLowerCase' : 'toUpperCase']()
+        }
+        return replaced;
+    }
+    console.log(changeText(text));
+</script>
