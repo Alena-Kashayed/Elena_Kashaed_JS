@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body id="body">
+	<div>
+		<div>
+			Two divs.
+		</div>
+	</div>
+	<div>
+		<div>
+			Two divs.
+		</div>
+	</div>
+	<div>
+		<div>
+			Two divs.
+		</div>
+	</div>
+	<script type="text/javascript">
+		function countTheDivs(){
+			var bodyContents = document.getElementById('body').innerHTML;
+			var divsNumber = bodyContents.indexOf(String.fromCharCode(60)+'div'+String.fromCharCode(62));
+			var counter = 0;
+			while (divsNumber >=0) {
+				counter++;
+				divsNumber = bodyContents.indexOf(String.fromCharCode(60)+'div'+String.fromCharCode(62), ++divsNumber);
+			}
+			console.log(counter);
+		}
+		countTheDivs();
+	</script>
+</body>
+</html>
