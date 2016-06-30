@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sample site</title>
+    </head>
+    <body>
+        <div>text<div>more text</div>and more...</div>in body
+	<script>
+	console.log('Task 6');
+	(function omitTags(){
+		var htmlContent = document.getElementsByTagName('*')[0].innerHTML;
+		htmlContent = htmlContent.replace(/<script>(.*\s*)*<\/script>/, '').replace(/<\/{0,1}[a-z]+>/g, '').replace(/\s+/g, ' ');
+		console.log(htmlContent);
+	})();
+	</script>
+ 	</body>
+</html>
