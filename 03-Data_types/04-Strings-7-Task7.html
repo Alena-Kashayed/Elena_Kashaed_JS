@@ -3,12 +3,16 @@
 	var url = 'http://www.tut.by/forum/index.php';
 	function parseURL(url){
 		var regExpUrl, result, names, i;
+		var obj = {};
+		var jsonResult;
 		names = ['', 'protocol', 'server',  'resource'];
 		regExpUrl = /^(?:([A-Za-z]+):)?\/\/([0-9.\-A-Za-z]+)([^?#]*)?$/;
 		result = regExpUrl.exec(url);
 		for (var i = 1; i < names.length; i++) {
-			console.log(names[i]+': '+result[i]);
+			obj[names[i]] = result[i]; 
 		}
-	}
+		jsonResult = JSON.stringify(obj);
+	    console.log(jsonResult);
+	}		
 	parseURL(url);
 </script>
