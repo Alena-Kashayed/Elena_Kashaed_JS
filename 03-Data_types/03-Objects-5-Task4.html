@@ -1,0 +1,26 @@
+<script type='text/javascript'>
+	console.log('Task 4');
+	var persons = [
+    { firstName : "Gosho", lastName: "Petrov", age: 32 },
+    { firstName : "Bay", lastName: "Ivan", age: 81 },
+    { firstName : "Ivan", lastName: "Ivanov", age: 18 },
+    { firstName : "Petya", lastName: "Petrov", age: 26 },
+    { firstName : "Vasya", lastName: "Vasilyev", age: 22 }
+    ];
+	function findYoungest(obj){
+		var i;
+		var minAge;
+		var result;
+		var theYoungest;
+		minAge = obj[0].age;
+		for (i = 0; i < obj.length; i++) {
+			if (minAge > obj[i].age) {
+				minAge = obj[i].age;
+				theYoungest = obj[i];
+			}	
+		}
+		result = 'The youngest person is ' + theYoungest.firstName +" " + theYoungest.lastName +'. He is ' + theYoungest.age + '.';
+		console.log(result);
+	}
+	findYoungest(persons);
+</script>
