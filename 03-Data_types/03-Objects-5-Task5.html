@@ -1,0 +1,24 @@
+<script type='text/javascript'>
+	console.log('Task 5');
+	var persons = [
+    { firstName : "Gosho", lastName: "Petrov", age: 18 },
+    { firstName : "Bay", lastName: "Ivan", age: 81 },
+    { firstName : "Ivan", lastName: "Ivanov", age: 18 },
+    { firstName : "Petya", lastName: "Petrov", age: 26 },
+    { firstName : "Gosho", lastName: "Vasilyev", age: 22 }
+    ];
+	var groupedByFirstName = group(persons, "firstName");
+  	var groupedByAge = group(persons, "age");
+	function group(obj, groupBy){
+		var result = {};
+		for (var i = 0; i < obj.length; i++) {
+			if (!result[obj[i][groupBy]]) { 
+				result[obj[i][groupBy]] = [];
+			}
+			result[obj[i][groupBy]].push(obj[i]);
+		}
+		return result;
+	}
+  	console.log(groupedByFirstName);
+  	console.log(groupedByAge);
+</script>
