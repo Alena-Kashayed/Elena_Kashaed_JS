@@ -1,0 +1,13 @@
+<script type='text/javascript'>
+	console.log('Task 7'); 
+	var testPosition = function find(testString, test){
+		if (typeof test == 'undefined') {
+			test = testString;	
+		}
+		return testString.indexOf(test);
+	}
+	console.log(testPosition("abc", "b"));
+	console.log(testPosition("abc"));
+	console.log(testPosition("abc", "d"));
+	console.log(testPosition("abc", "a", "b"));
+</script>
