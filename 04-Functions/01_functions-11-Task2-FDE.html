@@ -1,0 +1,13 @@
+﻿<script type='text/javascript'>
+	console.log('Task 2');
+	try {
+		console.log(comp('abc', 'abc'));
+		console.log(comp('abC', 'abc'));
+	} catch (err) {
+		console.log('The FDE Function can\'t be processed, as it is defined after its calling.');
+	}
+	
+	var comp = function(a, b){
+		return a == b ? 1 : -1;
+	}
+</script>
