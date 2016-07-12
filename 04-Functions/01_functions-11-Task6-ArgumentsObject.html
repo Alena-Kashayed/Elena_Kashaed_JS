@@ -1,0 +1,12 @@
+<script type='text/javascript'>
+	console.log('Task 6');
+	var param1 = 'This is the first sentence. This is a sentence with a list of items: cherries, oranges, apples, bananas.';
+	var param2 = 'This is the second sentence. This is a sentence with a list of items: red, blue, yellow, black.';
+	var arr = function(param1, param2){
+		var param1Search = param1.search(/:/);
+		var param2Search = param2.search(/:/);
+		return [(param1.slice(param1Search + 2, param1.indexOf('.', param1Search))),
+				(param2.slice(param2Search + 2, param2.indexOf('.', param2Search)))]
+	}
+	console.log(arr(param1, param2));
+</script>
