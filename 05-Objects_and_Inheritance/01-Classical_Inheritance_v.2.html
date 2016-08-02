@@ -1,0 +1,48 @@
+<script type='text/javascript'>
+	function checkName(name) {
+		if (!/[A-Z][a-z]{2,20}/.test(name)) {
+			throw Error('Invalid name!');
+		}
+	} 
+	function checkAge(age) {
+		age = Number(age);
+		if (isNaN(age)) {
+			throw Error('Invalid age format!');
+		} else if (age < 0 || age > 150) {
+			throw Error('Invalid age!');
+		}
+	}
+	function Person() {
+		Object.defineProperties(this, {
+			age: {
+				set: function(age){
+					checkAge(age);
+					this._age = age;
+				},
+				get: function() {
+					return this._age;
+				}
+			},
+			fullname: {
+				set: function(fullnameStr){
+					var names = fullnameStr.split(' ');
+					checkName(names[0]);
+					this._firstname = names[0];
+					checkName(names[1]);
+					this._lastname = names[1];
+				},
+				get: function(){
+					return this._firstname + ' ' + this._lastname;
+				}
+			}
+		});
+		this.introduce = function(){
+			return 'Hello! My name is ' + this.fullname + ' and I am ' + this.age + '-years-old.';
+		}
+	}
+	var user = new Person();
+	user.fullname = "Pasha Ezhov";
+	user.age = "52";
+	console.log(user);
+	console.log(user.introduce());
+</script>
