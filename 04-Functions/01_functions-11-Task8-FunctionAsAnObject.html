@@ -1,0 +1,23 @@
+<script type='text/javascript'>
+	console.log('Task 8');
+	function str(param){
+		if (str.isNonEmptyStr(param)) {
+			alert('String is non empty');
+		} else {
+			alert('String is empty');
+		}
+	}
+	str.isNonEmptyStr = function (param){
+		if (typeof param === 'string' && param != '') {
+			return true;
+		} else {
+			return false;
+		}
+	} 
+	console.log(str.isNonEmptyStr());
+	console.log(str.isNonEmptyStr(''));
+	console.log(str.isNonEmptyStr('a'));
+	console.log(str.isNonEmptyStr(1));
+	str();
+	str("a");
+</script>

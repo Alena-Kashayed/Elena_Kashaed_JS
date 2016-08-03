@@ -1,0 +1,23 @@
+<script type='text/javascript'>
+	console.log('Task 9');
+	function toConsole(param){
+		console.log(param);
+	}
+	function toAlert(param){
+		alert(param);
+	}
+	function splitToWords(msg, callback){
+		if (typeof callback !== 'undefined') {
+			let arr = msg.split(' ');
+			let i;
+			for (i = 0; i < arr.length; i++) {
+			 	callback(arr[i]);
+			} 
+		} else {
+			return msg.split(' ');
+		}
+	}
+	splitToWords("My very long text msg", toConsole); 
+	splitToWords("My very long text msg", toAlert); 
+	console.log(splitToWords("My very long text msg"));
+</script>
