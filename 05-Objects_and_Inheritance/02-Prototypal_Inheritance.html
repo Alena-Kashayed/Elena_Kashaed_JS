@@ -1,0 +1,93 @@
+<script>
+	var domElement = {
+		init: function(type){
+			if (typeof type !== 'string' || type == ''  || !/^[a-zA-Z][a-zA-Z0-9]*$/.test(type)) {
+				throw Error('Invalid tag');
+			}
+			this._type = type;
+			return this;
+		},
+		get innerHTML(){
+			var s = '<' + this._type;
+			if (this.attributes) {
+				this.attributes.sort(function(a,b) {
+					if (a.name > b.name) {return 1;}
+					if (a.name < b.name) {return -1;}
+					return 0;
+				});
+			}
+			for (var attr in this.attributes) {
+				s = s + ' ' + this.attributes[attr].name + '="' + this.attributes[attr].value  + '"';
+			}
+			s = s + '>';
+			if (this._content) {
+				s = s + this._content;
+			}
+			for (var child in this.children) {
+				s = s + this.children[child].innerHTML;
+			}
+			s = s + '</' + this._type + '>';
+			return s;
+		},
+		appendChild: function(child){
+			if (typeof child == 'string' || typeof child == 'object'){
+				if (typeof this.children == 'undefined'){
+					this.children = [];
+				}
+				this.children.push(child);
+			}
+			return this;
+		},
+		addAttribute: function(name, value){
+			if (typeof name !== 'string' || typeof name == '' || name == ''  || !/^[a-zA-Z][a-zA-Z0-9-]*$/.test(name)) {
+				throw Error('The type of attribute is not valid');
+			} 
+			if (typeof this.attributes == 'undefined'){
+				this.attributes = [];
+			}
+			this.attributes.push({name: name, value: value});
+			return this;
+		},
+		removeAttribute: function(attribute){
+			for (var index in this.attributes) {
+				if (this.attributes[index].name == attribute) {
+					delete this.attributes[index];
+				}
+			}
+			return this;
+		},
+		set content(text) {
+			if (typeof this._child == 'undefined') {
+				this._content = text;
+			}
+			return this;			
+		}
+	}
+
+	var meta = Object.create(domElement)
+    	.init('meta')
+    	.addAttribute('charset', 'utf-8');
+
+	var head = Object.create(domElement)
+    	.init('head')
+    	.appendChild(meta);
+
+    var div = Object.create(domElement)
+	    .init('div')
+	    .addAttribute('style', 'font-size: 42px');
+
+	div.content = 'Hello, world!';
+
+	var body = Object.create(domElement)
+	    .init('body')
+	    .appendChild(div)
+	    .addAttribute('id', 'myid')
+	    .addAttribute('bgcolor', '#012345');
+
+	var root = Object.create(domElement)
+		.init('html')
+		.appendChild(head)
+		.appendChild(body);
+
+	console.log(root.innerHTML);
+</script>
