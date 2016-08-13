@@ -17,29 +17,51 @@ onload = function toDoList(){
 				form.appendChild(container);
 		}
 		if (input.value !== '') {
-			let div = document.createElement('div');
-			div.appendChild(document.createTextNode(index + ') ' + input.value));
-			container.appendChild(div);
+			let label = document.createElement('label');
+			let checkboxInput = document.createElement('input');
+			checkboxInput.setAttribute('name', index);
+			checkboxInput.setAttribute('type','checkbox');
+			label.appendChild(checkboxInput);
+			label.setAttribute('name', index);
+			label.appendChild(document.createTextNode(' ' + input.value));
+			container.appendChild(label);
 			index++;
 		} 
 		form.reset();
 	}
 
 	deleteBtn.addEventListener('click', function(){
-		if (container.childNodes.length !== 0 && !container.getAttribute('style', 'display: none')) {
-			container.removeChild(container.lastChild);
+		if (container.childNodes.length !== 0) {
+			for (let i = 0; i < container.childNodes.length; i++) {
+				let  item = container.getElementsByTagName('label')[i];
+				if (item.getElementsByTagName('input')[0].checked && !item.getAttribute('style', 'display: none')) {
+					container.removeChild(item);
+					i--;
+					container.childNodes.length-1;
+				}
+			}	
 		}
 	});
 
 	hideBtn.addEventListener('click', function(){
 		if (container.childNodes.length !== 0) {
-			container.setAttribute('style', 'display: none');
+			for (let i = 0; i < container.childNodes.length; i++) {
+				let  item = container.getElementsByTagName('label')[i];
+				if (item.getElementsByTagName('input')[0].checked) {
+					item.setAttribute('style', 'display: none');
+				}
+			}
 		}
 	});
 
 	showBtn.addEventListener('click', function(){
 		if (container.childNodes.length !== 0) {
-			container.removeAttribute('style', 'display: none');
+			for (let i = 0; i < container.childNodes.length; i++) {
+				let  item = container.getElementsByTagName('label')[i];
+				if (item.getElementsByTagName('input')[0].checked) {
+					item.removeAttribute('style', 'display: none');
+				}
+			}
 		}
 	});
 
