@@ -1,0 +1,32 @@
+.slider {
+	position: relative;
+	margin: 150px auto;
+	width: 604px;
+	height: 360px;
+}
+#scr {
+	margin: 0 auto;
+	width: 600px;
+	height: 320px;
+	margin-top: 20px;
+	background-color: #fff;
+	background-size: cover;
+}
+button {
+	position: absolute;
+	top: 130px;
+	width: 40px;
+	height: 70px;
+	font: 35pt arial,tahoma,sans-serif;
+	text-align: center;
+	color: #fff;
+	background-color: #000;
+	opacity: 0.5;
+	border: none;
+}
+.left {
+	left: 10px;
+}
+.right {
+	right: 10px;
+}
