@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Rams and Speep</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<h1>Rams and Sheep</h1>
+		<p class="try">Try to guess the number!</p>
+		<form action="">
+			<input type="number" name="number">
+			<input type="button" class="checkBtn" value="Check">
+		</form>
+		<h1>The Rules</h1>
+		<ul class="rules">
+			<li>The computer sets a number to guess (for simplicity called abcd).</li>
+			<li>You are trying to guess. At each turn you enter a four-digit number (for simplicity called xyzw).</li>
+			<li>Sheep means that a digit from xyzw is contained in abcd, but not on the same position. If two such digits exists, the sheep are 2.</li>
+			<li>The leftmost digit must not be 0 (zero).</li>
+			<li>Ram means that a digit from xyzw is contained in abcd and it is on the same position. If two such digits exists, the rams are 2.</li>
+			<li>The game continues until you guess the number abcd i.e. you get 4 rams.</li>
+		</ul>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
