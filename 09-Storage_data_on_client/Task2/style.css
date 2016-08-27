@@ -1,0 +1,64 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+h1 {
+	text-align: center;
+	margin: 50px 0;
+}
+form {
+	margin: 50px auto;
+	text-align: center;
+}
+.wrapper {
+	max-width: 500px;
+	margin: 0 auto;
+	font-family: arial, verdana, sans-serif;
+}
+form input[type="number"] {
+	height: 29px;
+	width: 50px;
+	padding: 0 10px 0 10px;
+	font-size: 16pt;
+	position: relative;
+	top: 2px;
+}
+form input[type="number"] { 
+	-moz-appearance: textfield;
+}
+form input[type="number"]::-webkit-inner-spin-button { 
+	display: none;
+}
+.error {
+	text-align: center;
+	color: #f08080;
+}
+.getNumber {
+	font-size: 16pt;
+	font-weight: 600;
+}
+.container {
+	text-align: left;
+	margin-bottom: 25px;
+	margin-left: 90px;
+}
+
+form input[type="button"] {
+	padding: 7px 5px;
+	line-height: 11px;
+}
+form ul {
+	margin: 20px 0 30px 155px;
+}
+form ul li {
+	list-style-type: decimal;
+	text-align: left;
+	margin: 5px auto;
+}
+.rules {
+	margin: 20px auto 50px;
+}
+.try {
+	text-align: center;
+	font-size: 20px
+}
