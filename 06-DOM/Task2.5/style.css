@@ -1,0 +1,14 @@
+* {
+	margin: 0;
+}
+body {
+	font-size: 20px;
+}
+.TreeView {
+	margin: 50px auto;
+	max-width: 230px;
+	line-height: 35px;
+}
+.title {
+	cursor: pointer;
+}
